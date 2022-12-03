@@ -13,7 +13,15 @@ filemagick sub __init__.py \
     -p '__version__ = "0.0.0"' -r '__version__ = "0.1.0"'
 ```
 
-> Note you can use `-i` option to replace the file in place,
+We can use [Python re lookbehind and lookahead assertion](https://www.geeksforgeeks.org/python-regex-lookbehind/)
+feature to make out command shorter:
+
+```bash
+filemagick sub __init__.py \
+    -p '(?<=__version__ = ")0.0.0(?=")' -r '0.1.0'
+```
+
+> Note we can use `-i` option to replace the file in place,
 > or else just output the replaced content to stdout.
 
 ```bash
